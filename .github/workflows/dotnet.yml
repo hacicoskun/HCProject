@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@v2    
     - name: Restore dependencies           
       run: dotnet restore HCProject/HCProject.sln
-    - name: HCProject Web Publish
+    - name: HCProject Build
       run: |
         sudo systemctl stop kestrel-hcproject.service
-        dotnet publish -c Release -o /var/www/test
+        dotnet build HCProject/HCProject.sln
         sudo systemctl start kestrel-hcproject.service
