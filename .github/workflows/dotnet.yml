@@ -12,5 +12,5 @@ jobs:
     - name: HCProject Web Publish
       run: |
         sudo systemctl stop kestrel-hcproject.service
-        dotnet publish HCProject/HCProject/HCProject/HCProject.csproj -c Release -o /var/www/test
+        dotnet publish HCProject/HCProject.csproj -c Release -o /var/www/test
         sudo systemctl start kestrel-hcproject.service
