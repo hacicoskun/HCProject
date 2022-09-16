@@ -1,0 +1,16 @@
+name: HCPROJECT WEB
+
+on:
+  workflow_dispatch: 
+jobs:
+  build:
+    runs-on: HCProject
+    steps:
+    - uses: actions/checkout@v2    
+    - name: Restore dependencies           
+      run: dotnet restore    
+    - name: HCProject Web Publish
+      run: |
+        sudo systemctl stop kestrel-hcproject.service
+        dotnet publish HCProject/HCProject.csproj  -c Release -o /var/www/test
+        sudo systemctl start kestrel-hcproject.service
