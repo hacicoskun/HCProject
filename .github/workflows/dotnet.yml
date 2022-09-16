@@ -4,7 +4,7 @@ on:
   workflow_dispatch: 
 jobs:
   build:
-    runs-on: HCProject
+    runs-on: hc-linux
     steps:
     - uses: actions/checkout@v2    
     - name: Restore dependencies           
