@@ -8,9 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2    
     - name: Restore dependencies           
-      run: dotnet restore /HCProject//HCProject.sln
+      run: dotnet restore /root/hc_runner-github/HCProject/HCProject/HCProject.sln
     - name: HCProject Web Publish
       run: |
         sudo systemctl stop kestrel-hcproject.service
-        dotnet publish HCProject/HCProject.csproj -c Release -o /var/www/test
+        dotnet publish /HCProjectHCProject/HCProject.csproj -c Release -o /var/www/test
         sudo systemctl start kestrel-hcproject.service
